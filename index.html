@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assembly Station - Guida all'Installazione</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #fafafa, #eaeaea);
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .section {
+      width: 100%;
+      background-color: #fff;
+      padding: 30px 20px;
+      margin-bottom: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      border: 1px solid #f0f0f0;
+    }
+    .section:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    h1, h2 {
+      color: #0077cc;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 500;
+    }
+    h3 {
+      color: #005b99;
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #555;
+    }
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    .list li {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #555;
+      position: relative;
+      padding-left: 20px;
+    }
+    .list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #0077cc;
+    }
+    
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .content > div {
+      flex: 0 0 48%;
+      margin-bottom: 20px;
+    }
+    .content img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+ 
+    .button {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #005b99;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content > div {
+        flex: 0 0 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    
+    <div class="section">
+      <h1>ASSEMBLY STATION</h1>
+      <p>
+        Benvenuto nell'asset Unity Assembly Station! Mi chiamo Riccardo Martella, sono lo sviluppatore di questo asset e ti ringrazio per averlo scelto per il tuo progetto. Spero possa esserti utile e contribuire al successo del tuo lavoro.
+      </p>
+      <p>
+        SEGUI ATTENTAMENTE QUESTA GUIDA PER INSERIRE AL MEGLIO NEL TUO PROGETTO L’ASSEMBLY STATION.
+      </p>
+      <p>
+        Ricorda: prima di eseguire qualsiasi modifica all’interno del tuo progetto principale, esegui un backup e non utilizzare la scena principale prima di aver verificato attentamente tutti i passaggi.
+      </p>
+      <a href="#guida" class="button">Inizia la guida</a>
+    </div>
+
+   
+    <div class="section" id="guida">
+      <h2>GUIDA:</h2>
+      <ul class="list">
+        <li>1 - Installazione</li>
+        <li>2 - Guida Prefab Materiali</li>
+        <li>3 - Instanziare Prefab</li>
+      </ul>
+    </div>
+
+    
+    <div class="section">
+      <h2>1. GUIDA PREFAB MATERIALI</h2>
+      <p>
+        Il progetto al suo interno utilizza <strong>Text Mesh Pro</strong> e <strong>Input System</strong>.
+      </p>
+
+    
+      <div class="content">
+        <div>
+          <h3>TEXTMESH PRO NEL PROGETTO</h3>
+          <p>
+            Il pacchetto TextMesh Pro è incluso in Unity Editor. Non è necessario installarlo. Puoi seguire la semplice guida al link per inserirlo nel progetto (TextMesh Pro).
+          </p>
+          <p>
+            Potrebbe verificarsi un problema per cui non vedrai le scritte nei pulsanti o in altre parti, dovuto al fatto che il testo non ha un font assegnato. Basta andare nel testo e impostare un font base o personalizzato.
+          </p>
+        </div>
+        <div>
+          <img src="./image/text.png" alt="Esempio TextMesh Pro" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+      
+      <div class="content">
+        <div>
+          <h3>INPUT SYSTEM</h3>
+          <p>
+            All'inizio del progetto è presente un player base che può muoversi liberamente e accedere all'Assembly Station tramite un pulsante. Il player viene mosso grazie all’Input System di Unity e contiene uno script che gestisce le risorse dell’Assembly Station.
+          </p>
+          <p>
+            Se nel tuo progetto hai già un player, puoi usare il tuo Input System e aggiungere lo script <strong>RESOURCES COMPONENT PLAYER</strong> ai componenti. Se desideri utilizzare il mio, devi installare l'<strong>INPUT SYSTEM</strong>.
+          </p>
+          <p>
+            Se è già presente un Input System, basta modificare lo script <strong>PLAYER CONTROLLER</strong> per integrarlo.
+          </p>
+        </div>
+        <div>
+          <img src="./image/input.png" alt="Esempio Input System" onclick="zoomImage(this)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>2. PREFAB</h2>
+      <p>
+        Presta attenzione a questa parte, è fondamentale per l’utilizzo dell’asset. Assembly Station funziona tramite <strong>SKINNED MESH RENDER</strong> e <strong>MESH RENDER</strong>.
+      </p>
+
+    
+      <div class="content">
+        <div>
+          <h3>Model FBX</h3>
+          <p>
+            Se hai un modello FBX, devi estrarre tutti i materiali e metterli nella cartella <strong>Resources</strong> all'interno del percorso <code>Assets > AssemblyStation > Resources</code>.
+          </p>
+        </div>
+        <div>
+          <img src="./image/resources.png" alt="Percorso Resources" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+     
+      <div class="content">
+        <div>
+          <p>
+            Per estrarre i materiali, vai qui:
+          </p>
+        </div>
+        <div>
+          <img src="./image/Fbx2.png" alt="Esempio Fbx2" onclick="zoomImage(this)">
+          <img src="./image/Fbx3.png" alt="Esempio Fbx3" onclick="zoomImage(this)">
+          <p>
+            E seleziona la cartella Resources.
+          </p>
+        </div>
+      </div>
+
+      
+      <div class="content">
+        <div>
+          <p>
+            Una volta fatto, torna nel modello FBX e seleziona. Automaticamente il modello riconoscerà i materiali presenti nella cartella.
+          </p>
+        </div>
+        <div>
+          <img src="./image/FBX.png" alt="Esempio FBX" onclick="zoomImage(this)">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <h2>3. INSTANZIARE PREFAB</h2>
+      <p>
+        Una volta separati i materiali, vai nella cartella Prefab Clone: <code>Assets > AssemblyStation > Prefab Clone</code>.
+      </p>
+
+     
+      <div class="content">
+        <div>
+          <p>
+            L’Assembly Station instanzia il prefab in un punto specifico chiamato <strong>Assembly Point</strong>.
+          </p>
+        </div>
+        <div>
+          <img src="./image/pivot3.png" alt="Assembly Point" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+     
+      <div class="content">
+        <div>
+          <p>
+            Quel punto fa riferimento al pivot del genitore del prefab, che contiene tutti i “pezzi” che compongono il gameobject.
+          </p>
+        </div>
+        <div>
+          <img src="./image/pivot2.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+     
+      <div class="content">
+        <div>
+          <p>
+            Quando instanziamo il prefab, il punto pivot corrisponde all’Assembly Point. Per fare in modo che il prefab non fluttui o si intersechi con il terreno, bisogna spostare il pivot del genitore. (Partiamo dal FBX)
+          </p>
+        </div>
+        <div>
+          <img src="./image/pivot.png" alt="Spostamento Pivot" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+   
+      <div class="content">
+        <div>
+          <p>
+            In questo caso, come puoi vedere, il pivot è leggermente spostato verso l’alto. Quindi premiamo <em>Unpack Completely</em>.
+          </p>
+        </div>
+        <div>
+          <img src="./image/unpack.png" alt="Unpack Completely" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+     
+      <div class="content">
+        <div>
+          <p>
+            Seleziona tutto tranne il genitore (in questo caso <strong>Mech Rework</strong>) e sposta tutto fuori.
+          </p>
+        </div>
+        <div>
+          <img src="./image/prefabguide2.png" alt="Spostamento fuori dal genitore" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+    
+      <div class="content">
+        <div>
+          <h3>Creazione del Prefab</h3>
+          <p>
+            Una volta fatto, seleziona tutti i figli e rimettili come prima all’interno del genitore. Poi, trascina il genitore nella cartella: il prefab verrà creato automaticamente.
+          </p>
+        </div>
+        <div>
+          <img src="./image/prefabguide.png" alt="Creazione del Prefab" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+  
+      <div class="content">
+        <div>
+          <p>
+            In questo esempio il prefab è allineato in basso per far sembrare che il mecha si appoggi sul piano. Questo, naturalmente, dipende da come desideri utilizzare l’Assembly.
+          </p>
+        </div>
+        <div>
+          <img src="./image/lowpivot.png" alt="Prefab allineato in basso" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+     
+      <div class="content">
+        <div>
+          <p>
+            Puoi posizionare anche il modello in aria (ad esempio se si tratta di un’arma). In questo caso il pivot è molto in basso, in modo che il modello rimanga sospeso. Una volta fatto, seleziona tutti i figli, rimettili nel genitore e trascina quest’ultimo nella cartella: il prefab verrà creato automaticamente.
+          </p>
+        </div>
+        <div>
+          <img src="./image/ak.png" alt="Prefab posizionato in aria" onclick="zoomImage(this)">
+          <img src="./image/prefabimg.png" alt="Prefab posizionato in aria 2" onclick="zoomImage(this)">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function zoomImage(img) {
+      const newWindow = window.open();
+      newWindow.document.write(`<img src="${img.src}" style="width:50%;height:auto;">`);
+    }
+  </script>
+
+</body>
+</html>
