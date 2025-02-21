@@ -1,18 +1,21 @@
+</html>
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Assembly Station - Guida all'Installazione</title>
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
-    
 
-        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembly Station - Guida all'Installazione</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+
+
 
         * {
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
@@ -20,48 +23,58 @@
             padding: 0;
             background-color: #f6f6f6e9 !important;
         }
+
         .container-wrapper {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-            border-radius: 8px; 
+            border-radius: 8px;
         }
+
         .section {
-            background-color: #fff; 
+            background-color: #fff;
             padding: 30px 20px;
             margin-bottom: 40px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease;
             border: 1px solid #f0f0f0;
         }
+
         .section:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #0077cc;
             text-align: center;
             margin-bottom: 20px;
         }
+
         h1 {
             font-size: 36px;
             font-weight: 600;
         }
+
         h2 {
             font-size: 28px;
             font-weight: 500;
         }
+
         h3 {
             color: #005b99;
             font-size: 22px;
             font-weight: 500;
             margin-bottom: 10px;
         }
+
         p {
             font-size: 16px;
             color: #555;
             margin-bottom: 15px;
         }
+
         code {
             background-color: #f4f4f4;
             padding: 4px 8px;
@@ -69,12 +82,14 @@
             font-size: 16px;
             color: #555;
         }
+
         .list {
             list-style: none;
             padding: 0;
             margin: 0;
             text-align: center;
         }
+
         .list li {
             font-size: 18px;
             margin-bottom: 8px;
@@ -82,20 +97,23 @@
             position: relative;
             padding-left: 20px;
         }
+
         .content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin-top: 20px;
         }
-        .content > div {
+
+        .content>div {
             flex: 0 0 48%;
             margin-bottom: 20px;
         }
+
         .content img {
             width: 100%;
             border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             display: block;
             margin: 0 auto;
             cursor: pointer;
@@ -112,591 +130,469 @@
             margin-top: 20px;
             transition: background-color 0.3s ease;
         }
+
         .button:hover {
             background-color: #005b99;
         }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .content > div {
+            .content>div {
                 flex: 0 0 100%;
             }
         }
     </style>
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    </head>
-    <body>
-        <div class="container-wrapper">
-            <div class="section">
-                <h1>ASSEMBLY STATION</h1>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container-wrapper">
+        <div class="section">
+            <h1>ASSEMBLY STATION</h1>
+            <br>
+            <div class="text-center">
+                <h5> Benvenuto nell'asset Unity Assembly Station! Mi chiamo
+                    <strong>Riccardo Martella</strong>, sono lo sviluppatore
+                    di questo asset e ti
+                    ringrazio per averlo scelto per il tuo progetto. Spero
+                    possa
+                    esserti utile e contribuire al successo del tuo lavoro.
+                </h5>
                 <br>
-                <div class="text-center">
-                    <h5> Benvenuto nell'asset Unity Assembly Station! Mi chiamo
-                        <strong>Riccardo Martella</strong>, sono lo sviluppatore
-                        di questo asset e ti
-                        ringrazio per averlo scelto per il tuo progetto. Spero
-                        possa
-                        esserti utile e contribuire al successo del tuo lavoro.
-                    </h5>
-                    <br>
-                    <h5 class="text-danger"><u>ATTENTION!!!</u></h5>
-                    <p class="text-danger">
-                        SEGUI ATTENTAMENTE QUESTA GUIDA PER INSERIRE AL MEGLIO
-                        NEL
-                        TUO PROGETTO L’ASSEMBLY STATION.
-                    </p>
-                    <p class="text-danger">
-                        Ricorda: prima di eseguire qualsiasi modifica
-                        all’interno
-                        del tuo progetto principale, <u>Esegui un Backup</u> e
-                        non
-                        utilizzare la scena principale prima di aver verificato
-                        attentamente tutti i passaggi.
-                    </p>
+                <h5 class="text-danger"><u>ATTENTION!!!</u></h5>
+                <p class="text-danger">
+                    SEGUI ATTENTAMENTE QUESTA GUIDA PER INSERIRE AL MEGLIO NEL TUO PROGETTO L’ASSEMBLY STATION.
+                </p>
+                <p class="text-danger">
+                    Ricorda: prima di eseguire qualsiasi modifica all’interno del tuo progetto principale, <u>Esegui un Backup</u> e non utilizzare la scena principale prima di aver verificato attentamente tutti i passaggi.
+                </p>
 
-                </div>
-                <div class="d-flex justify-content-center my-4">
-                    <div>
-                      <a href="mailto:riccardomartella@gmail.com" class="btn btn-light bg-transparent border-0">
+            </div>
+            <div class="d-flex justify-content-center my-4">
+                <div>
+                    <a href="mailto:riccardomartella@gmail.com" class="btn btn-light bg-transparent border-0">
                         <i class="fas fa-envelope fa-3x text-primary"></i>
-                      </a>
-                  
-                      <a href="https://www.instagram.com/yourprofile" class="btn btn-light bg-transparent border-0">
+                    </a>
+
+                    <a href="https://www.instagram.com/yourprofile" class="btn btn-light bg-transparent border-0">
                         <i class="fab fa-instagram fa-3x text-primary"></i>
-                      </a>
-                  
-                      <a href="https://unity.com/" class="btn btn-light bg-transparent border-0">
+                    </a>
+
+                    <a href="https://unity.com/" class="btn btn-light bg-transparent border-0">
                         <i class="fab fa-unity fa-3x text-primary"></i>
-                      </a>
-                    </div>
-                  </div>
-                  
-                <div class="container my-3">
-
-                    <div class="row g-3 align-items-stretch">
-
-                        <div class="col-4">
-
-                            <a href="#guida"
-                                class="btn btn-primary d-flex align-items-center justify-content-center w-100 h-100 fs-5 text-center"
-                                style="white-space: normal;">
-
-                                Lascia una Recensione<br>
-                                <small>(molto apprezzato)</small>
-                            </a>
-                        </div>
-
-                        <div class="col-4">
-                            <a href="#guida"
-                                class="btn btn-primary d-flex align-items-center justify-content-center w-100 h-100 fs-2 text-center">
-                                Inizia la guida
-                            </a>
-                        </div>
-
-                        <div class="col-4">
-                            <a href="#guida"
-                                class="btn btn-primary d-flex align-items-center justify-content-center w-100 h-100 fs-5 text-center"
-                                style="white-space: normal;">
-                                Segnala un Bug
-                            </a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="section" id="guida">
-                <h2>GUIDA:</h2>
-                <ul class="list">
-                    <li>1 - Installazione</li>
-                    <li>2 - Guida FBX e Materiali</li>
-                    <li>3 - Instanziare Prefab</li>
-                    <li>4 - Aggingere Descrizione immagini Prefab</li>
-                </ul>
-            </div>
+            <div class="container my-3">
 
-            <div class="section">
-                <h2>1. INSTALLAZIONE</h2>
-                <p class="text-center text-center mt-4 mb-4">
-                    Il progetto al suo interno utilizza <strong>Text Mesh
-                        Pro</strong> e <strong>Input System</strong>.
-                </p>
+                <div class="row g-3 align-items-stretch">
 
-                <div class="content">
-                    <div>
-                        <h3>TEXTMESH PRO NEL PROGETTO</h3>
-                        <p>
-                            Il pacchetto TextMesh Pro è incluso in Unity Editor.
-                            Non è necessario installarlo. Puoi seguire la
-                            semplice guida al link per inserirlo nel progetto
-                            <a
-                                href="https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/TextMeshPro/index.html">(TextMesh
-                                Pro)</a>.
-                        </p>
-                        <p>
-                            Potrebbe verificarsi un problema per cui non vedrai
-                            le scritte nei pulsanti o in altre parti, dovuto al
-                            fatto che il testo non ha un font assegnato. Basta
-                            andare nel testo e impostare un font base o
-                            personalizzato.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/text.png" alt="Esempio TextMesh Pro"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
+                    <div class="col-4">
 
-                <div class="content">
-                    <div>
-                        <h3>INPUT SYSTEM</h3>
-                        <p>
-                            All'inizio del progetto è presente un player base
-                            che può muoversi liberamente e accedere all'Assembly
-                            Station tramite un pulsante. Il player viene mosso
-                            grazie all’<a
-                                href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.13/manual/index.html">Input
-                                System di Unity</a> e contiene uno
-                            script che gestisce le risorse dell’Assembly
-                            Station.
-                        </p>
-                        <p>
-                            Se nel tuo progetto hai già un player, puoi usare il
-                            tuo Input System e aggiungere lo script
-                            <strong>RESOURCES COMPONENT PLAYER</strong> ai
-                            componenti. Se desideri utilizzare il mio, devi
-                            installare l'<strong>INPUT SYSTEM</strong>.
-                        </p>
-                        <p>
-                            Se è già presente un Input System, basta modificare
-                            lo script <strong>PLAYER CONTROLLER</strong> per
-                            integrarlo.
-                        </p>
+                        <a href="#guida" class="btn btn-primary d-flex align-items-center justify-content-center w-100 h-100 fs-5 text-center" style="white-space: normal;">
+
+                            Lascia una Recensione<br>
+                            <small>(molto apprezzato)</small>
+                        </a>
                     </div>
-                    <div>
-                        <img src="./image/input.png" alt="Esempio Input System"
-                            onclick="zoomImage(this)">
+
+                    <div class="col-4">
+                        <a href="#guida" class="btn btn-primary d-flex align-items-center justify-content-center w-100 h-100 fs-2 text-center">
+                            Inizia la guida
+                        </a>
+                    </div>
+
+                    <div class="col-4">
+                        <a href="#guida" class="btn btn-primary d-flex align-items-center justify-content-center w-100 h-100 fs-5 text-center" style="white-space: normal;">
+                            Segnala un Bug
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="section">
-                <h2>2. GUIDA FBX E MATERIALI</h2>
-                <p>
-                    Presta attenzione a questa parte, è fondamentale per
-                    l’utilizzo dell’asset. Assembly Station funziona tramite
-                    <strong>SKINNED MESH RENDER</strong> e <strong>MESH
-                        RENDER</strong>.
-                </p>
+        <div class="section" id="guida">
+            <h2>GUIDA:</h2>
+            <ul class="list">
+                <li>1 - Installazione</li>
+                <li>2 - Guida FBX e Materiali</li>
+                <li>3 - Instanziare Prefab</li>
+                <li>4 - Aggingere Descrizione immagini Prefab</li>
+                <li>5 - Gruppi/Categorie</li>
+            </ul>
+        </div>
 
-                <div class="content">
-                    <div>
-                        <h3>Model FBX</h3>
-                        <p>
-                            Se hai un modello FBX, devi estrarre tutti i
-                            materiali e metterli nella cartella
-                            <strong>Resources</strong> all'interno del percorso
-                            <code>Assets > AssemblyStation > Resources</code>.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/resources.png"
-                            alt="Percorso Resources" onclick="zoomImage(this)">
-                    </div>
+        <div class="section">
+            <h2>1. INSTALLAZIONE</h2>
+            <p class="text-center text-center mt-4 mb-4">
+                Il progetto al suo interno utilizza <strong>Text Mesh
+                    Pro</strong> e <strong>Input System</strong>.
+            </p>
+
+            <div class="content">
+                <div>
+                    <h3>TEXTMESH PRO NEL PROGETTO</h3>
+                    <p>
+                        Il pacchetto TextMesh Pro è incluso in Unity Editor. Non è necessario installarlo. Puoi seguire la semplice guida al link per inserirlo nel progetto
+                        <a href="https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/TextMeshPro/index.html">(TextMesh
+                            Pro)</a>.
+                    </p>
+                    <p>
+                        Potrebbe verificarsi un problema per cui non vedrai le scritte nei pulsanti o in altre parti, dovuto al fatto che il testo non ha un font assegnato. Basta andare nel testo e impostare un font base o personalizzato.
+                    </p>
                 </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            Per estrarre i materiali, vai qui:
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/Fbx2.png" alt="Esempio Fbx2"
-                            onclick="zoomImage(this)">
-                        <img src="./image/Fbx3.png" alt="Esempio Fbx3"
-                            onclick="zoomImage(this)">
-                        <p>
-                            E seleziona la cartella Resources.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            Una volta fatto, torna nel modello FBX e seleziona.
-                            Automaticamente il modello riconoscerà i materiali
-                            presenti nella cartella.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/FBX.png" alt="Esempio FBX"
-                            onclick="zoomImage(this)">
-                    </div>
+                <div>
+                    <img src="./image/text.png" alt="Esempio TextMesh Pro" onclick="zoomImage(this)">
                 </div>
             </div>
 
-            <div class="section">
-                <h2>3. INSTANZIARE PREFAB</h2>
-                <div class="content">
-                    <div>
-                        <p>
-                            Una volta separati i materiali, vai nella cartella
-                            Prefab Clone: <code>Assets > AssemblyStation >
+            <div class="content">
+                <div>
+                    <h3>INPUT SYSTEM</h3>
+                    <p>
+                        All'inizio del progetto è presente un player base che può muoversi liberamente e accedere all'Assembly Station tramite un pulsante. Il player viene mosso grazie all’<a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.13/manual/index.html">Input
+                            System di Unity</a> e contiene uno script che gestisce le risorse dell’Assembly Station.
+                    </p>
+                    <p>
+                        Se nel tuo progetto hai già un player, puoi usare il tuo Input System e aggiungere lo script
+                        <strong>RESOURCES COMPONENT PLAYER</strong> ai componenti. Se desideri utilizzare il mio, devi installare l'<strong>INPUT SYSTEM</strong>.
+                    </p>
+                    <p>
+                        Se è già presente un Input System, basta modificare lo script <strong>PLAYER CONTROLLER</strong> per integrarlo.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/input.png" alt="Esempio Input System" onclick="zoomImage(this)">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. GUIDA FBX E MATERIALI</h2>
+            <p>
+                Presta attenzione a questa parte, è fondamentale per l’utilizzo dell’asset. Assembly Station funziona tramite
+                <strong>SKINNED MESH RENDER</strong> e <strong>MESH
+                    RENDER</strong>.
+            </p>
+
+            <div class="content">
+                <div>
+                    <h3>Model FBX</h3>
+                    <p>
+                        Se hai un modello FBX, devi estrarre tutti i materiali e metterli nella cartella
+                        <strong>Resources</strong> all'interno del percorso
+                        <code>Assets > AssemblyStation > Resources</code>.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/resources.png" alt="Percorso Resources" onclick="zoomImage(this)">
+                </div>
+            </div>
+
+            <div class="content">
+                <div>
+                    <p>
+                        Per estrarre i materiali, vai qui:
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/Fbx2.png" alt="Esempio Fbx2" onclick="zoomImage(this)">
+                    <img src="./image/Fbx3.png" alt="Esempio Fbx3" onclick="zoomImage(this)">
+                    <p>
+                        E seleziona la cartella Resources.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content">
+                <div>
+                    <p>
+                        Una volta fatto, torna nel modello FBX e seleziona. Automaticamente il modello riconoscerà i materiali presenti nella cartella.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/FBX.png" alt="Esempio FBX" onclick="zoomImage(this)">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. INSTANZIARE PREFAB</h2>
+            <div class="content">
+                <div>
+                    <p>
+                        Una volta separati i materiali, vai nella cartella Prefab Clone: <code>Assets > AssemblyStation >
                                 Prefab
                                 Clone</code>.
-                        </p>
-                    </div>
+                    </p>
+                </div>
+                <div>
                     <div>
-                        <div>
-                            <img src="./image/prefabclone.png"
-                                alt="Assembly Point" onclick="zoomImage(this)">
-                        </div>
+                        <img src="./image/prefabclone.png" alt="Assembly Point" onclick="zoomImage(this)">
                     </div>
                 </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            L’Assembly Station instanzia il prefab in un punto
-                            specifico chiamato <strong>Assembly Point</strong>.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/pivot3.png" alt="Assembly Point"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            Quel punto fa riferimento al pivot del genitore del
-                            prefab, che contiene tutti i “pezzi” che compongono
-                            il gameobject.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/pivot2.png" alt="Pivot del genitore"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            Quando instanziamo il prefab, il punto pivot
-                            corrisponde all’Assembly Point. Per fare in modo che
-                            il prefab non fluttui o si intersechi con il
-                            terreno, bisogna spostare il pivot del genitore.
-                            (Partiamo dal FBX)
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/pivot.png" alt="Spostamento Pivot"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            In questo caso, come puoi vedere, il pivot è
-                            leggermente spostato verso l’alto. Quindi premiamo
-                            <em>Unpack Completely</em>.
-                        </p>
-                        <p>
-                            Per spostare il pivot basterà cliccare sulla freccia
-                            verde e sposta il pivot in basso.
-                            Ti consiglio di attivare la visuale 2D per avere una
-                            visione migliore.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/unpack.png" alt="Unpack Completely"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            Seleziona tutto tranne il genitore (in questo caso
-                            <strong>Mech Rework</strong>) e sposta tutto fuori.
-                        </p>
-                    </div>
-                    <div class="content">
-                        <div>
-
-                            <img src="./image/prefabguide2.png"
-                                alt="Spostamento fuori dal genitore"
-                                onclick="zoomImage(this)">
-                        </div>
-                        <div>
-                            <img src="./image/prefabguide.png"
-                                alt="Creazione del Prefab"
-                                onclick="zoomImage(this)">
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            In questo caso il prefab è allineato in basso per
-                            far sembrare che il Mecha si appoggi sul piano.
-                            Quindi ho spostato il pivot leggermente in basso.
-                            Questo dipende da te in base a come vuoi far
-                            visualizzare il prefab.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/lowpivot.png"
-                            alt="Prefab allineato in basso"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
-                <div class="content">
-                    <div>
-                        <p>
-                            Puoi posizionare anche il modello in aria (ad
-                            esempio se si tratta di un’arma). In questo caso il
-                            pivot è molto in basso, in modo che il modello
-                            rimanga sospeso.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/ak.png"
-                            alt="Prefab posizionato in aria"
-                            onclick="zoomImage(this)">
-
-                    </div>
-                </div>
-                <div class="content">
-                    <div>
-                        <h3>Creazione del Prefab</h3>
-                        <p>
-                            Una volta fatto, seleziona tutti i figli e rimettili
-                            come prima all’interno del genitore. Poi, trascina
-                            il genitore nella cartella (Prefab clone) e in
-                            automatico verrà creato
-                            .
-                        </p>
-                        <img style="width: fit-content;"
-                            src="./image/prefabimg.png"
-                            alt="Prefab posizionato in aria 2"
-                            onclick="zoomImage(this)">
-                    </div>
-                    <div>
-                        <img src="./image/replaceprefab.png"
-                            alt="Creazione del Prefab"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
-
             </div>
 
+            <div class="content">
+                <div>
+                    <p>
+                        L’Assembly Station instanzia il prefab in un punto specifico chiamato <strong>Assembly Point</strong>.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/pivot3.png" alt="Assembly Point" onclick="zoomImage(this)">
+                </div>
+            </div>
 
+            <div class="content">
+                <div>
+                    <p>
+                        Quel punto fa riferimento al pivot del genitore del prefab, che contiene tutti i “pezzi” che compongono il gameobject.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/pivot2.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                </div>
+            </div>
 
+            <div class="content">
+                <div>
+                    <p>
+                        Quando instanziamo il prefab, il punto pivot corrisponde all’Assembly Point. Per fare in modo che il prefab non fluttui o si intersechi con il terreno, bisogna spostare il pivot del genitore. (Partiamo dal FBX)
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/pivot.png" alt="Spostamento Pivot" onclick="zoomImage(this)">
+                </div>
+            </div>
 
+            <div class="content">
+                <div>
+                    <p>
+                        In questo caso, come puoi vedere, il pivot è leggermente spostato verso l’alto. Quindi premiamo
+                        <em>Unpack Completely</em>.
+                    </p>
+                    <p>
+                        Per spostare il pivot basterà cliccare sulla freccia verde e sposta il pivot in basso. Ti consiglio di attivare la visuale 2D per avere una visione migliore.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/unpack.png" alt="Unpack Completely" onclick="zoomImage(this)">
+                </div>
+            </div>
 
-
-
-
-
-
-            
-            <div class="section">
-                <h2 class="text-uppercase">4 - Aggingere Descrizione immagini Prefab</h2>
-                <p class="text-center mt-4 mb-4">
-                   Una volta aggiunti tutti i prefab che si desidera e spostati i pivot, bisognerà aggiungere a ogni figlio del gameobject che contiene Meshrander o SkinnedMeshRenderer
-                   una descrizione, e un'immagine, mentre al genitore un titolo.
-                </p>
-                <p class="text-center mt-4 mb-4">
-                  Tutto questo viene fatto <u>automaticamente</u> dall'asset (in base alla quantità dei prefa nella cartella impiegherà più o meno tempo).
-                 </p>
-
-                <div class="content mt-5">
+            <div class="content">
+                <div>
+                    <p>
+                        Seleziona tutto tranne il genitore (in questo caso
+                        <strong>Mech Rework</strong>) e sposta tutto fuori.
+                    </p>
+                </div>
+                <div>
                     <div>
-                        <p>
-                          Basterà cliccare sul pulsante(in alto) <strong>Tools > Add Name and Descriptions To Prefab</strong>selezionare la cartella <u>prefab clone</u> e verrà aggiunto automaticamente una descrizione, un nome e un'immagine a ogni figlio del prefab.
-                        </p>
+                        <img src="./image/prefabguide2.png" alt="Spostamento fuori dal genitore" onclick="zoomImage(this)">
                     </div>
                     <div>
-                        <div>
-                            <img src="./image/Addname.png"
-                                alt="Assembly Point" onclick="zoomImage(this)">
-                        </div>
-                        <div>
-                            <img src="./image/prefabcloneadd.png"
-                                alt="Assembly Point" onclick="zoomImage(this)">
-                        </div>
+                        <img src="./image/prefabguide.png" alt="Creazione del Prefab" onclick="zoomImage(this)">
                     </div>
                 </div>
+            </div>
 
-                <div class="content">
-                    <div>
-                        <p>
-                            <strong class="text-danger">Non inserire nulla all'interno del campo </strong>
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/scriptabledescription.png" alt="Assembly Point"
-                            onclick="zoomImage(this)">
-                            <img src="./image/scriptabletitle.png" alt="Assembly Point"
-                                onclick="zoomImage(this)">
-                    </div>
-                  
+            <div class="content">
+                <div>
+                    <p>
+                        In questo caso il prefab è allineato in basso per far sembrare che il Mecha si appoggi sul piano. Quindi ho spostato il pivot leggermente in basso. Questo dipende da te in base a come vuoi far visualizzare il prefab.
+                    </p>
                 </div>
-                <h3 class="text-center mt-5 mb-5"> INSRIMETNO MANUALE TESTI</h3>
-                <div class="content">
-                    <div>
-                        <p>
-                            se si vaa fare doppio click con il mouse su Piece Description o Preview Description si andra direttamente al pezzo corrispondente.
-                            nella cartella <code>Assets > AssemblyStation > ScriptableObjects</code>
-                             
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/piecedescription.png" alt="Pivot del genitore"
-                            onclick="zoomImage(this)">
-                            <img src="./image/prewdescription.png" alt="Pivot del genitore"
-                            onclick="zoomImage(this)">
-                    </div>
-                    </div>
+                <div>
+                    <img src="./image/lowpivot.png" alt="Prefab allineato in basso" onclick="zoomImage(this)">
                 </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            Quando instanziamo il prefab, il punto pivot
-                            corrisponde all’Assembly Point. Per fare in modo che
-                            il prefab non fluttui o si intersechi con il
-                            terreno, bisogna spostare il pivot del genitore.
-                            (Partiamo dal FBX)
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/pivot.png" alt="Spostamento Pivot"
-                            onclick="zoomImage(this)">
-                    </div>
+            </div>
+            <div class="content">
+                <div>
+                    <p>
+                        Puoi posizionare anche il modello in aria (ad esempio se si tratta di un’arma). In questo caso il pivot è molto in basso, in modo che il modello rimanga sospeso.
+                    </p>
                 </div>
+                <div>
+                    <img src="./image/ak.png" alt="Prefab posizionato in aria" onclick="zoomImage(this)">
 
-                <div class="content">
-                    <div>
-                        <p>
-                            In questo caso, come puoi vedere, il pivot è
-                            leggermente spostato verso l’alto. Quindi premiamo
-                            <em>Unpack Completely</em>.
-                        </p>
-                        <p>
-                            Per spostare il pivot basterà cliccare sulla freccia
-                            verde e sposta il pivot in basso.
-                            Ti consiglio di attivare la visuale 2D per avere una
-                            visione migliore.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/unpack.png" alt="Unpack Completely"
-                            onclick="zoomImage(this)">
-                    </div>
                 </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            Seleziona tutto tranne il genitore (in questo caso
-                            <strong>Mech Rework</strong>) e sposta tutto fuori.
-                        </p>
-                    </div>
-                    <div class="content">
-                        <div>
-
-                            <img src="./image/prefabguide2.png"
-                                alt="Spostamento fuori dal genitore"
-                                onclick="zoomImage(this)">
-                        </div>
-                        <div>
-                            <img src="./image/prefabguide.png"
-                                alt="Creazione del Prefab"
-                                onclick="zoomImage(this)">
-                        </div>
-
-                    </div>
+            </div>
+            <div class="content">
+                <div>
+                    <h3>Creazione del Prefab</h3>
+                    <p>
+                        Una volta fatto, seleziona tutti i figli e rimettili come prima all’interno del genitore. Poi, trascina il genitore nella cartella (Prefab clone) e in automatico verrà creato .
+                    </p>
+                    <img style="width: fit-content;" src="./image/prefabimg.png" alt="Prefab posizionato in aria 2" onclick="zoomImage(this)">
                 </div>
-
-                <div class="content">
-                    <div>
-                        <p>
-                            In questo caso il prefab è allineato in basso per
-                            far sembrare che il Mecha si appoggi sul piano.
-                            Quindi ho spostato il pivot leggermente in basso.
-                            Questo dipende da te in base a come vuoi far
-                            visualizzare il prefab.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/lowpivot.png"
-                            alt="Prefab allineato in basso"
-                            onclick="zoomImage(this)">
-                    </div>
+                <div>
+                    <img src="./image/replaceprefab.png" alt="Creazione del Prefab" onclick="zoomImage(this)">
                 </div>
-                <div class="content">
-                    <div>
-                        <p>
-                            Puoi posizionare anche il modello in aria (ad
-                            esempio se si tratta di un’arma). In questo caso il
-                            pivot è molto in basso, in modo che il modello
-                            rimanga sospeso.
-                        </p>
-                    </div>
-                    <div>
-                        <img src="./image/ak.png"
-                            alt="Prefab posizionato in aria"
-                            onclick="zoomImage(this)">
-
-                    </div>
-                </div>
-                <div class="content">
-                    <div>
-                        <h3>Creazione del Prefab</h3>
-                        <p>
-                            Una volta fatto, seleziona tutti i figli e rimettili
-                            come prima all’interno del genitore. Poi, trascina
-                            il genitore nella cartella (Prefab clone) e in
-                            automatico verrà creato
-                            .
-                        </p>
-                        <img style="width: fit-content;"
-                            src="./image/prefabimg.png"
-                            alt="Prefab posizionato in aria 2"
-                            onclick="zoomImage(this)">
-                    </div>
-                    <div>
-                        <img src="./image/replaceprefab.png"
-                            alt="Creazione del Prefab"
-                            onclick="zoomImage(this)">
-                    </div>
-                </div>
-
             </div>
 
         </div>
 
-        <script>
+        <div class="section">
+            <h2 class="text-uppercase">4 - Aggingere Descrizione immagini Prefab</h2>
+            <p class="text-center mt-4 mb-4">
+                Una volta aggiunti tutti i prefab che si desidera e spostati i pivot, bisognerà aggiungere a ogni figlio del gameobject che contiene Meshrander o SkinnedMeshRenderer una descrizione, e un'immagine, mentre al genitore un titolo.
+            </p>
+            <p class="text-center mt-4 mb-4">
+                Tutto questo viene fatto <u>automaticamente</u> dall'asset (in base alla quantità dei prefa nella cartella impiegherà più o meno tempo).
+            </p>
+
+            <div class="content mt-5">
+                <div>
+                    <p>
+                        Basterà cliccare sul pulsante(in alto) <strong>Tools > Add Name and Descriptions To
+                            Prefab</strong>selezionare la cartella <u>prefab clone</u> e verrà aggiunto automaticamente una descrizione, un nome e un'immagine a ogni figlio del prefab.
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <img src="./image/Addname.png" alt="Assembly Point" onclick="zoomImage(this)">
+                    </div>
+                    <div class="mt-2">
+                        <img src="./image/prefabcloneadd.png" alt="Assembly Point" onclick="zoomImage(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div>
+                    <p>
+                        <strong class="text-danger">Non inserire nulla all'interno del campo </strong>
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/scriptabledescription.png" alt="Assembly Point" onclick="zoomImage(this)">
+                    <img class="mt-2" src="./image/scriptabletitle.png" alt="Assembly Point" onclick="zoomImage(this)">
+                </div>
+
+            </div>
+            <h3 class="text-center mt-5 mb-5"> INSRIMETNO MANUALE TESTI</h3>
+            <div class="content">
+                <div>
+                    <p>
+                        Fare doppio click con il mouse su Piece Description o Preview Description si andra direttamente al pezzo corrispondente. nella cartella <code>Assets > AssemblyStation > ScriptableObjects</code>
+
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/piecedescription.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                    <img class="mt-2" src="./image/prewdescription.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <p>
+                        Se si seleziona Preview Description si aprirà una finestra con tutti gli scriptable object creati per ogni prefab, qui si può inserire il nome del prefab e la descrizione.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/titlePrefab.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                    <img class="mt-2" src="./image/previewasset.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <p>
+                        Mentre se si seleziona Piece Description si aprirà una finestra con tutti gli scriptable object creati per ogni figlio del prefab, qui si può inserire il nome del figlio e la descrizione.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/pieces.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                    <img class="mt-2" src="./image/pieceslist.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <p>
+                        Questo è quello che sarà visualizzato nel gioco per la Preview del modello.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/panelpreview.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <p>
+                        Questo è quello che sarà visualizzato nel gioco per la Preview del pezzo.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/piecespanel.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                </div>
+            </div>
+            <h3 class="text-center mt-5 mb-5"> IMMAGINI</h3>
+            <div class="content">
+                <div>
+                    <p>
+                        Ogni "pezzo" avrà un immagine associata che verrà visualizzata nella preview.
+                        <hr> L'immagine viene generata automaticamente quando andiamo a premere il pulsante <strong>Tools >
+                            Add Name and Descriptions To Prefab</strong>
+                        <hr> Se si desidera inserire un'immagine personale basterà andare nella Piece Description e selezionare l'immagine desiderata sostituendola con quella generata dal sistema.
+                        <hr> Funzionamento (Modalità Editor): al click su Add Name and Descriptions To Prefab viene generata una camera in posizione frontale al pezzo e viene scattata una foto, questa foto viene salvata nella cartella
+                        <code>Assets > AssemblyStation > Screenshot > </code> e viene associata al figlio. Per ovvie ragioni l'immagine potrebbe essere compromessa dalla grandezza del pezzo e per un'angolazione non corretta. Per questo si consiglia di
+                        inserire un'immagine personalizzata se si verifica questo problema.
+                    </p>
+                </div>
+                <div>
+                    <img src="./image/imagepiece.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                    <img class="mt-2" src="./image/imagepiecePanel.png" alt="Pivot del genitore" onclick="zoomImage(this)">
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="text-uppercase">5 - GRUPPI/CATEGORIE</h2>
+            <p class="text-center mt-4 mb-4">
+               Una volta inseriti tuttu i testi e le immagini, si può procedere con la creazione dei Gruppi. <br> Inizialmente ogni pezzo del prefab non avrà un tag e quindi sarà visibile nel pannello in un unica lista.
+            </p>
+            <p class="text-center mt-4 mb-4">
+            
+            </p>
+
+            <div class="content mt-5">
+                <div>
+                    <p>
+                        Basterà cliccare sul pulsante(in alto) <strong>Tools > Add Name and Descriptions To
+                            Prefab</strong>selezionare la cartella <u>prefab clone</u> e verrà aggiunto automaticamente una descrizione, un nome e un'immagine a ogni figlio del prefab.
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <img src="./image/Addname.png" alt="Assembly Point" onclick="zoomImage(this)">
+                    </div>
+                    <div class="mt-2">
+                        <img src="./image/prefabcloneadd.png" alt="Assembly Point" onclick="zoomImage(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <script>
         function zoomImage(img) {
             const newWindow = window.open();
             newWindow.document.write(`<img src="${img.src}" style="width:75%;height:auto;">`);
         }
     </script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-            rel="stylesheet">
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</body>
+
 </html>
