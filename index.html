@@ -669,13 +669,9 @@
             <h4 class="text-center mb-3 text-danger "> Prestare attenzione a questa parte</h4>
             <h3 class="text-center  mb-5  "> GRUPPI</h3>
             <p class="text-center ">
-               Come abbiamo detto ogni pezzo che contiene una <u>SkinnedMeshRenderer o Meshrander</u>  verrà visualizzato nel pannello. 
-               <br>
-               questo comporta che se si hanno modelli con centinaia di pezzi si avrà una lista molto lunga e per l'utente sarà difficile trovare il pezzo desiderato. 
-               <br>
-               per questo ho creato i Gruppi, permettono di raggruppare i pezzi in base appunto al gruppo che si desidera.
-
-               Per farti capire meglio cosa intendo ti faccio un esempio:
+                Ogni pezzo che contiene uno <u>SkinnedMeshRenderer o un MeshRenderer</u>  verrà visualizzato nel pannello. Questo significa che, in presenza di modelli con centinaia di pezzi, la lista risultante sarà molto lunga, rendendo difficile per l'utente trovare rapidamente il pezzo desiderato.
+<br>
+                Per risolvere questo problema, ho introdotto i Gruppi, che permettono di organizzare i pezzi in categorie specifiche, semplificando la ricerca e la gestione. Per chiarire meglio il concetto, ecco un esempio:
 
             </p>
         
@@ -683,13 +679,41 @@
             <div class="content mt-5 mb-3">
                 <div>
                     <p>
-                   In questo caso i pezzi non hanno un gruppo assegnato e quindi verranno visaulizzati in piu pulsanti.
+                   In questo caso i pezzi non hanno un gruppo assegnato e quindi verranno visaulizzati in 6 pulsanti.
                        
                     </p>
                 </div>
                 <div>
-                        <img style="width: 250px;" src="./image/testgruppi.png" alt="Assembly Point" onclick="zoomImage(this)">
+                        <img src="./image/testgruppi.png" alt="Assembly Point" onclick="zoomImage(this)">
                 </div>
+            </div>
+            <div class="content mt-5 mb-3">
+                <div>
+                    <p>
+                  Mentre una volta aseegnato il gruppo, ecco il risultato:
+
+                  1 pulsante per 6 pezzi
+                       
+                    </p>
+                </div>
+                <div>
+                        <img src="./image/fix.png" alt="Assembly Point" onclick="zoomImage(this)">
+                </div>
+            </div>
+            <div class="content mt-5 mb-3">
+                <div>
+                    <p>
+                 Per assegnar eil gruppo ecco il video.
+
+                    </p>
+                </div>
+                <div class=" d-flex justify-content-center">
+                    <video controls class="w-100">
+                        <source src="./video/AssemblyStation-GuidaallInstallazione.mp4" type="video/mp4">
+                        <source src="./video/AssemblyStation-GuidaallInstallazione.webm" type="video/webm">
+                    </video>
+                </div>
+                
             </div>
         </div>
     </div>
