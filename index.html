@@ -47,8 +47,8 @@
                     problemi.
                 </p>
                 <p class="">
-                    Consiglio importante: Prima di fare qualsiasi modifica al tuo progetto principale, fai un <u
-                        class="text-danger">backup!</u> Inoltre, evita di lavorare direttamente sulla scena principale
+                    Consiglio importante: Prima di apportare modifiche al tuo progetto principale, effettua un <u
+                        class="text-danger">backup!</u>. Inoltre, evita di lavorare direttamente sulla scena principale
                     finché non hai verificato che tutto funzioni correttamente.
                     <br>
                     Buon lavoro e buon divertimento con Assembly Station!
@@ -117,7 +117,7 @@
                 <li><a href="#installazione">1 - Installazione</a></li>
                 <li><a href="#FBX">2 - Guida FBX e Materiali</a></li>
                 <li><a href="#Prefab">3 - Instanziare Prefab</a></li>
-                <li><a href="#Descrizione">4 - Aggingere Descrizione immagini Prefab</a></li>
+                <li><a href="#Descrizione">4 - Aggiungere descrizioni e immagini Prefab</a></li>
                 <li><a href="#Pulsanti">5 - Pulsanti e Categorie per i Prefab</a></li>
                 <li><a href="#Categorie">6 - Tag/Categorie/Gruppi Pezzi</a></li>
                 <li><a href="#Risorse">7 - Risorse</a></li>
@@ -357,11 +357,11 @@
         </div>
 
         <div class="section">
-            <h2 class="text-uppercase" id="Descrizione">4 - Aggingere Descrizione immagini Prefab</h2>
+            <h2 class="text-uppercase" id="Descrizione">4 - Aggiungere descrizioni e immagini Prefab</h2>
             <p class="text-center mt-4 mb-4">
-                Una volta aggiunti tutti i prefab che si desidera e spostati i pivot, bisognerà aggiungere a ogni figlio
-                del gameobject che contiene Meshrander o SkinnedMeshRenderer una descrizione, e un'immagine, mentre al
-                genitore un titolo.
+                Una volta aggiunti tutti i prefab desiderati e spostati i pivot, occorre aggiungere a ogni figlio
+                del gameobject che contiene MeshRenderer o SkinnedMeshRenderer una descrizione e un'immagine,
+                mentre al genitore occorre assegnare un titolo.
             </p>
             <p class="text-center mt-4 mb-4">
                 Tutto questo viene fatto <u>automaticamente</u> dall'asset (in base alla quantità dei prefa nella
@@ -428,7 +428,7 @@
             </div>
             <div class="content">
                 <div>
-                    <p>
+                    <p id="PieceDescriptionR">
                         Mentre se si seleziona Piece Description si aprirà una finestra con tutti gli scriptable object
                         creati per ogni figlio del prefab, qui si può inserire il nome del figlio e la descrizione.
                     </p>
@@ -644,7 +644,7 @@
             <div class="content mt-5">
                 <div>
                     <p>
-                        Cosi facendo si vanno a suddividere i pezzi per categoria.
+                        Così facendo, i pezzi verranno suddivisi in base alla categoria che hai assegnato.
                     </p>
                 </div>
                 <div>
@@ -708,18 +708,17 @@
                         <source src="./video/AssemblyStation-GuidaallInstallazione.webm" type="video/webm">
                     </video>
                 </div>
-                <br>
+                <br id="first">
                 <p class="text-center">
-                    Quando si usano i Gruppi <u>l'immagine del pezzo verrà selezionata automaticamente dal primo pezzo
-                        del gruppo</u> , come la descrizione e il nome del pezzo.
-                    Per questo motivo è importante assegnare l'immagine desiderata al primo pezzo del gruppo in base a
-                    quella che si preferidce far vedere.
+                    Quando si usano i Gruppi, l'immagine del pezzo viene selezionata automaticamente dal primo pezzo
+                    del gruppo, così come la descrizione e il nome. È importante, quindi, assegnare
+                    all'elemento iniziale del gruppo l’immagine che preferisci mostrare.
 
                 </p>
             </div>
             <div class="content mt-5 mb-3">
                 <div>
-                    <p>
+                    <p >
 
                         Per ritrovare il pezzo basta Avviare la scena e cercare nella Hierarchy la lista Content Pieces
                         il pezzo che
@@ -738,6 +737,103 @@
                 <br>
 
             </div>
+        </div>
+        <div class="section">
+            <h2 class="text-uppercase" id="Risorse">7- RISORSE</h2>
+            <p class="text-center mt-4 mb-4">
+                La Sezione relativa alle risorse è più complessa e richiede conoscenze di programmazione.
+                Per ovvie ragioni non posso sapere quali e come le risorse vengono gestite nel tuo gioco, per questo ne
+                ho aggiunte alcune di base.
+                Iron, Plastic, Rubber.
+
+                Di base l'assembly station utilizza un sistema di risorse, in cui ogni componente avrà un costo e verrà scalato
+                dall'inventario del player.
+            </p>
+
+            <div class="content mt-5">
+                <div>
+                    <p class="mb-3">
+                        Le Risorse del player si trovano nella cartella
+                        <code>Assets > AssemblyStation > ScriptableObject > Resources Player</code>.
+                        questo è assegnato al player tramite lo <u>script(ResourcesComponentPLayer) che potete trovare
+                            in <strong>PLayer Test</strong> nella Hierarchy</u>
+                    </p>
+
+                </div>
+
+
+                <div>
+                    <img class="mb-2" src="./image/ResourcesPlayer.png" alt="Assembly Point" onclick="zoomImage(this)">
+                </div>
+
+            </div>
+            <div class="content mt-5">
+                <div>
+
+                    <p class="mt-5">
+                        Qui si assegneranno la quantità delle risorse, mentre nello script(PlayerResources) si puo
+                        gestire la logica.
+                    </p>
+                </div>
+
+
+                <div>
+                    <img src="./image/scriptresources.png" alt="Assembly Point" onclick="zoomImage(this)">
+                </div>
+
+            </div>
+
+            <div class="content mt-5">
+                <div>
+                    <p>
+                        Come visto nel capitolo <a href="#PieceDescriptionR">4</a> questa è la sezione in cui si possono
+                        aggiungere i vari testi immagini etc nel singolo pezzo.
+                        Come si puo vedere ci sono 2 sezioni di cui non abbiamo parlato <u>RESOURCES VISIBLE</u> e
+                        <u>RESOURCES.</u>
+
+                        QUi possono essere insriti i costi per ogni pezzo e rendere visibile o meno le risorse.
+
+                        esempio:
+
+
+                    </p>
+                </div>
+                <div>
+                    <div class="d-flex">
+                        <div>
+                            <img style="width: 250px;" src="./image/pieceResources.png" alt="Assembly Point"
+                                onclick="zoomImage(this)">
+
+                        </div>
+                        <div>
+                            <img style="width: 250px;" src="./image/cost.png" alt="Assembly Point"
+                                onclick="zoomImage(this)">
+
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div>
+                            <img style="width: 250px;" src="./image/hidden.png" alt="Assembly Point"
+                                onclick="zoomImage(this)">
+
+                        </div>
+                        <div>
+                            <img style="width: 250px;" src="./image/hiddengame.png" alt="Assembly Point"
+                                onclick="zoomImage(this)">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <h4 class="text-center mt-5 text-danger"> ATTENZIONE!!!</h4>
+            <h5 class="text-center mb-3 text-danger "> Per i Pezzi che hanno un Gruppo Vale sempre la stessa regola,
+                viene preso il <a href="#first"><u>1 della lista</u> </a> Quindi le risorse andranno cambiate li.</h5>
+            <p>
+                Nel caso dei pezzi con un Gruppo, ti ricordo che le risorse devono essere cambiate sempre nel
+                primo pezzo del Gruppo, in quanto i dati relativi a immagine, descrizione e costo
+                vengono presi da lì.
+            </p>
         </div>
     </div>
     </div>
