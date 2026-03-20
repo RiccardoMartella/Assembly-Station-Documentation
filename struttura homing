@@ -1,0 +1,723 @@
+# HOMING MISSILE — Documentazione Completa
+
+## CONTESTO
+Documentazione tecnica completa dell'asset Unity "Homing Missile", basata sul codice sorgente effettivo.
+
+---
+
+## 0. ALBERO ATTUALE DELLA DOCUMENTAZIONE
+
+```
+Assets/
+└── HomingMissile/
+    ├── Animation/
+    │   ├── AirAnimator.controller
+    │   ├── CubeTargetMove.controller
+    │   ├── CubeTargetUpDown.controller
+    │   ├── MoveAir.anim
+    │   ├── MoveTarget.anim
+    │   └── MoveUpDown.anim
+    ├── Demo/
+    │   ├── AirDemo.unity
+    │   └── GroundDemo.unity
+    ├── Documentation.pdf
+    ├── Input/
+    │   ├── InputSystem_Actions.cs
+    │   └── InputSystem_Actions.inputactions
+    ├── Licenses/
+    │   ├── A Third-Party Notices.txt
+    │   └── Font/
+    │       └── License.txt
+    ├── Materials/
+    │   ├── Blue.mat
+    │   ├── BlueTarget.mat
+    │   ├── RedTarget.mat
+    │   └── Test.mat
+    ├── Prefabs/
+    │   └── Launcher/
+    │       └── weapons/
+    │           ├── Effects/
+    │           │   ├── Explosion/
+    │           │   │   ├── ExplosionFX.prefab
+    │           │   │   └── Materials/
+    │           │   │       ├── explosion.mat
+    │           │   │       ├── ExplosionFX_Additive.mat
+    │           │   │       └── ExplosionFX_AlphaBlend.mat
+    │           │   └── Rocket/
+    │           │       ├── RocketLaunchFX.prefab
+    │           │       └── Materials/
+    │           │           ├── RocketFX_Additive.mat
+    │           │           └── RocketFX_AlphaBlend.mat
+    │           ├── Materials/
+    │           │   ├── 02-rocketluncher_MAT-RocketLauncher_BaseColor.mat
+    │           │   ├── 02-rocketluncher_MAT-RocketLauncher-upper_BaseColor.mat
+    │           │   └── bullet.mat
+    │           ├── PrefabVariantAir/
+    │           │   └── RocketLauncher.prefab
+    │           ├── PrefabvariantGround/
+    │           │   └── RocketLauncher.prefab
+    │           ├── Rocket.fbx
+    │           ├── Rocket.prefab
+    │           ├── RocketLauncher.fbx
+    │           └── Sounds/
+    │               ├── explosion.wav
+    │               ├── missile-navigazione.wav
+    │               ├── partenza.wav
+    │               └── partenza2.wav
+    ├── Scripts/
+    │   ├── Core/
+    │   │   ├── HomingMissile.cs
+    │   │   ├── LauncherConfig.cs
+    │   │   ├── LauncherController.cs
+    │   │   ├── LauncherControllerConfig.cs
+    │   │   ├── MissileConfig.cs
+    │   │   ├── MissileLauncher.cs
+    │   │   └── TargetHealth.cs
+    │   ├── Editor/
+    │   │   └── PipelineMaterialConverter.cs
+    │   ├── Player/
+    │   │   └── PlayerController.cs
+    │   ├── UI/
+    │   │   └── LauncherHUDController.cs
+    │   └── Utility/
+    │       ├── ExplosionLightFade.cs
+    │       ├── SceneSwitcher.cs
+    │       └── SessionAnimator.cs
+    ├── texture/
+    │   ├── Plane/
+    │   │   ├── Tiles106_4K-JPG_AmbientOcclusion.png
+    │   │   ├── Tiles106_4K-JPG_Color.png
+    │   │   ├── Tiles106_4K-JPG_Displacement.png
+    │   │   ├── Tiles106_4K-JPG_NormalDX.png
+    │   │   ├── Tiles106_4K-JPG_NormalGL.png
+    │   │   └── Tiles106_4K-JPG_Roughness.png
+    │   └── TexturesMecha/
+    │       ├── 02-rocketluncher_MAT-RocketLauncher_BaseColor.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher_Height.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher_Metallic.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher_Normal.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher_Roughness.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher-upper_BaseColor.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher-upper_Height.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher-upper_Metallic.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher-upper_Normal.png
+    │       ├── 02-rocketluncher_MAT-RocketLauncher-upper_Roughness.png
+    │       ├── 06-bullet_MAT-bullet_BaseColor.png
+    │       ├── 06-bullet_MAT-bullet_Height.png
+    │       ├── 06-bullet_MAT-bullet_Metallic.png
+    │       └── 06-bullet_MAT-bullet_Normal.png
+    └── UI/
+        └── LauncherHUD/
+            ├── LauncherHUD.uss
+            └── LauncherHUD.uxml
+```
+
+### Riepilogo conteggio file
+| Cartella | File | Tipo |
+|----------|------|------|
+| Animation/ | 6 | 3 controller + 3 clip anim |
+| Demo/ | 2 | scene Unity |
+| Root | 1 | Documentation.pdf |
+| Input/ | 2 | 1 .cs auto-generato + 1 .inputactions |
+| Licenses/ | 2 | testi licenza |
+| Materials/ | 4 | materiali bersagli/test |
+| Prefabs/.../Effects/ | 2 prefab + 3 mat | VFX esplosione e lancio |
+| Prefabs/.../Materials/ | 3 | materiali launcher e bullet |
+| Prefabs/.../PrefabVariantAir/ | 1 | variante launcher aereo |
+| Prefabs/.../PrefabvariantGround/ | 1 | variante launcher terrestre |
+| Prefabs/.../Sounds/ | 4 | file audio .wav |
+| Prefabs/.../ (root weapons) | 2 prefab + 1 fbx + 1 fbx | Rocket + RocketLauncher |
+| Scripts/Core/ | **7** | script runtime principali |
+| Scripts/Editor/ | 1 | tool editor |
+| Scripts/Player/ | 1 | input handler |
+| Scripts/UI/ | 1 | HUD controller |
+| Scripts/Utility/ | 3 | helper scripts |
+| texture/Plane/ | 6 | PBR 4K ground (.png) |
+| texture/TexturesMecha/ | 14 | PBR launcher + bullet (.png) |
+| UI/LauncherHUD/ | 2 | UXML + USS |
+
+**Totale script C#:** 13 (7 Core + 1 Editor + 1 Player + 1 UI + 3 Utility) + 1 auto-generato (Input) = **14 file .cs**
+
+> **NOTA:** L'Overview (pagina 01) dichiara "9 core scripts" — il conteggio reale in Scripts/Core/ è **7**.
+> Il "9" include probabilmente PlayerController.cs e LauncherHUDController.cs. **Da correggere nella documentazione web.**
+
+---
+
+## 1. DOCUMENTAZIONE SCRIPT COMPLETA
+
+### 1.1 HomingMissile.cs
+**Percorso:** Scripts/Core/HomingMissile.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+**Attributi classe:** `[RequireComponent(typeof(Rigidbody))]`
+
+#### Serialized Fields
+| Campo | Tipo | Default | Attributi | Descrizione |
+|-------|------|---------|-----------|-------------|
+| config | MissileConfig | null | [Header("Config Override")] | ScriptableObject config opzionale. Sovrascrive i campi sotto se assegnato |
+| navigationConstant | float | 4f | [Header("Guidance — Proportional Navigation")] | Costante di navigazione (N'). Range tipico 3-5 |
+| maxLateralG | float | 30f | | Accelerazione laterale massima (G) |
+| seekerFOV | float | 45f | | Semi-angolo cono del seeker (gradi) |
+| seekerRange | float | 800f | | Range massimo del seeker (m) |
+| launchPhaseTime | float | 0.3f | [Header("Engine")] | Durata volo rettilineo prima della guida |
+| boostThrust | float | 600f | | Spinta durante fase boost (N) |
+| boostDuration | float | 1.5f | | Durata fase boost (secondi) |
+| sustainerThrust | float | 200f | | Spinta durante fase sustainer (N) |
+| sustainerDuration | float | 4f | | Durata fase sustainer (secondi) |
+| missileDrag | float | 0.05f | | Drag aerodinamico |
+| proximityRadius | float | 3f | [Header("Warhead")] | Raggio spoletta di prossimita (m) |
+| explosionRadius | float | 8f | | Raggio danno esplosione (m) |
+| explosionForce | float | 500f | | Forza esplosione |
+| explosionDamage | float | 100f | | Danno massimo esplosione |
+| lifetime | float | 12f | | Vita massima missile (secondi) |
+| explosionPrefab | GameObject | null | [Header("Effects")] | Prefab esplosione |
+| trailEffectPrefab | GameObject | null | | Prefab effetto scia |
+| launchSound | AudioClip | null | [Header("Audio")] | Suono lancio |
+| launchVolume | float | 1f | [Range(0f, 1f)] | Volume suono lancio |
+| launchMinDistance | float | 5f | | Distanza minima audio lancio (m) |
+| launchMaxDistance | float | 50f | | Distanza massima audio lancio (m) |
+| travelAudioSource | AudioSource | null | | Sorgente audio looping durante il volo. Va assegnata nell'Inspector su un AudioSource child del missile con loop abilitato |
+| explosionSound | AudioClip | null | | Suono esplosione |
+| explosionVolume | float | 1f | [Range(0f, 1f)] | Volume suono esplosione |
+| explosionMinDistance | float | 10f | | Distanza minima audio esplosione (m) |
+| explosionMaxDistance | float | 100f | | Distanza massima audio esplosione (m) |
+
+#### Public Methods
+| Metodo | Firma | Descrizione |
+|--------|-------|-------------|
+| Initialize | `void Initialize(Transform targetTransform, Vector3 initialVelocity)` | Inizializza il missile con target e velocita iniziale. Chiamato da MissileLauncher al lancio |
+
+#### Properties
+Nessuna proprieta pubblica.
+
+#### Events
+Nessun evento.
+
+#### Dependencies
+- `Rigidbody` (RequireComponent) — per la fisica del missile
+- `Physics.OverlapSphere` — per la spoletta di prossimita e il danno esplosivo
+- `Physics.RaycastAll` — per l'occlusione del seeker
+- `SendMessage("TakeDamage", damage)` — invia danno ai GameObject nell'area esplosione
+- `ParticleSystem` — per gli effetti scia
+
+#### Fasi del Missile
+| Fase | Durata | Comportamento |
+|------|--------|--------------|
+| Launch | 0 → launchPhaseTime | Volo rettilineo, no guida |
+| Boost | launchPhaseTime → +boostDuration | Spinta alta (boostThrust), guida PN attiva |
+| Sustainer | dopo boost → +sustainerDuration | Spinta ridotta (sustainerThrust), guida PN attiva |
+| Coast | dopo sustainer | Volo balistico, solo gravita, guida PN attiva |
+
+#### Formula Guida PN
+```
+a = N' × Vc × LOS_rate
+```
+Dove:
+- `N'` = navigationConstant (costante di navigazione)
+- `Vc` = velocita di chiusura (closing velocity)
+- `LOS_rate` = tasso di variazione della linea di vista (rad/s)
+
+---
+
+### 1.2 MissileLauncher.cs
+**Percorso:** Scripts/Core/MissileLauncher.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+**Enum associato:** `FireMode { RocketList, Projectile }`
+
+#### Serialized Fields
+| Campo | Tipo | Default | Attributi | Descrizione |
+|-------|------|---------|-----------|-------------|
+| config | LauncherConfig | null | [Header("Config Override")] | ScriptableObject config opzionale |
+| fireMode | FireMode | RocketList | [Header("Fire Mode")] | Modalita di sparo: RocketList (pre-posizionati) o Projectile (istanziati) |
+| rocketList | List\<Transform\> | vuota | [Header("Rockets (RocketList mode)")] | Missili pre-posizionati nel launcher |
+| projectilePrefab | GameObject | null | [Header("Projectile (Projectile mode)")] | Prefab da istanziare ad ogni sparo |
+| projectileSpawnPoint | Transform | null | | Punto di spawn per proiettili istanziati |
+| maxAmmo | int | -1 | | Munizioni massime (-1 = infinite) |
+| rocketLaunchForce | float | 100f | [Header("Launch")] | Forza di lancio |
+| launchVelocityMultiplier | float | 1f | | Moltiplicatore velocita iniziale (1 = piena, 0.3 = 30%) |
+| fireRate | float | 0.5f | [Header("Fire Settings")] | Colpi al secondo |
+| recoilForce | float | 20f | [Header("Recoil")] | Forza rinculo |
+| aimCamera | Camera | null | [HideInInspector] | Camera di mira. Assegnata da PlayerController |
+| lockOnRange | float | 400f | [Header("Lock-On")] | Range massimo rilevamento target (m) |
+| lockOnAngle | float | 18f | | Semi-angolo cono di rilevamento (gradi) |
+| lockOnTime | float | 2f | | Secondi necessari per agganciare |
+| beepFrequency | float | 440f | [Header("Lock-On Audio")] | Frequenza beep (Hz) |
+| beepDuration | float | 0.08f | | Durata beep (secondi) |
+| beepVolume | float | 0.5f | [Range(0f, 1f)] | Volume beep |
+| beepIntervalMax | float | 0.3f | | Intervallo beep a inizio lock (secondi) |
+| beepIntervalMin | float | 0.05f | | Intervallo beep quasi agganciato (secondi) |
+| lockedToneFrequency | float | 600f | | Frequenza tono continuo quando agganciato (Hz) |
+
+#### Properties
+| Proprieta | Tipo | Get/Set | Descrizione |
+|-----------|------|---------|-------------|
+| CurrentTarget | Transform | Get | Target attuale |
+| LockProgress | float | Get | Progresso lock-on (0-1) |
+| IsLocked | bool | Get | True se lockProgress >= 1 |
+| RocketCount | int | Get | Munizioni rimanenti (rocketList.Count o currentAmmo) |
+| InitialRocketCount | int | Get | Conteggio iniziale munizioni |
+| CooldownProgress | float | Get | Progresso cooldown sparo (0-1) |
+
+#### Events
+| Evento | Tipo | Descrizione |
+|--------|------|-------------|
+| OnFire | System.Action | Invocato ad ogni sparo |
+| OnLockProgressChanged | System.Action\<Transform, float\> | Invocato ogni frame durante il tracking (target, progresso) |
+| OnTargetLocked | System.Action\<Transform\> | Invocato quando il lock raggiunge 100% |
+| OnTargetLost | System.Action | Invocato quando il target viene perso |
+
+#### Public Methods
+| Metodo | Firma | Descrizione |
+|--------|-------|-------------|
+| Enter | `void Enter()` | Entra in modalita controllo |
+| Exit | `void Exit()` | Esce dalla modalita controllo |
+| Fire | `void Fire()` | Spara un missile (rispetta cooldown e munizioni) |
+
+#### Dependencies
+- `HomingMissile` sui missili/proiettili — per `Initialize(target, velocity)`
+- `Physics.RaycastAll` — occlusione lock-on (salta la gerarchia del veicolo)
+- `GameObject.FindGameObjectsWithTag("target")` — ricerca target
+- `Camera.main` (fallback) o `aimCamera` — per raycast e calcolo angoli
+- `Rigidbody` (parent) — per velocita veicolo e rinculo
+- Audio procedurale: `AudioClip.Create` + sine wave per beep e tono locked
+
+#### Modalita di Sparo
+| Modalita | Descrizione | Munizioni |
+|----------|-------------|-----------|
+| RocketList | Missili pre-posizionati come figli del launcher. Vengono sganciati (SetParent null) e lanciati uno alla volta (selezione random) | Finite (rocketList.Count) |
+| Projectile | Istanzia `projectilePrefab` su `projectileSpawnPoint` ad ogni sparo | maxAmmo (-1 = infinite) |
+
+#### Lock-On System
+- **Ricerca target:** tutti i GameObject con tag "target" nel range e cono
+- **Priorita:** distanza dal centro schermo (piu vicino al mirino = priorita)
+- **Occlusione:** RaycastAll, salta collider del veicolo (transform.root)
+- **Isteresi:** target gia tracciato ha cono 50% piu largo per evitare flickering
+- **Grace period:** 150ms prima di perdere il target (evita micro-dropout)
+- **Audio:** beep acceleranti durante acquisizione, tono continuo quando locked
+
+---
+
+### 1.3 LauncherController.cs
+**Percorso:** Scripts/Core/LauncherController.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+#### Serialized Fields
+| Campo | Tipo | Default | Attributi | Descrizione |
+|-------|------|---------|-----------|-------------|
+| config | LauncherControllerConfig | null | [Header("Config Override")] | ScriptableObject config opzionale |
+| turret | Transform | null | [Header("References")] | Base rotante (rotazione su Y) |
+| cannon | Transform | null | | Blocco superiore (rotazione su X — elevazione) |
+| rotationSpeed | float | 180f | [Header("Rotation")] | Sensibilita rotazione orizzontale |
+| elevationSpeed | float | 90f | [Header("Elevation")] | Sensibilita elevazione verticale |
+| maxElevation | float | 45f | | Angolo massimo verso l'alto (positivo) |
+| minElevation | float | -10f | | Angolo massimo verso il basso (negativo) |
+| airMode | bool | false | [Header("Air Mode")] | Inverti controlli per montaggio capovolto (sotto aereo) |
+| smoothSpeed | float | 10f | [Header("Smoothing")] | Velocita interpolazione rotazione |
+| startElevation | float | 90f | [Header("Start")] | Elevazione iniziale all'avvio |
+
+#### Properties
+| Proprieta | Tipo | Get/Set | Descrizione |
+|-----------|------|---------|-------------|
+| TurretTransform | Transform | Get | Transform della torretta |
+| CurrentElevation | float | Get | Angolo di elevazione corrente |
+
+#### Public Methods
+| Metodo | Firma | Descrizione |
+|--------|-------|-------------|
+| Enter | `void Enter()` | Entra in controllo — legge rotazione attuale della torretta |
+| Exit | `void Exit()` | Esce dal controllo |
+| SetLookInput | `void SetLookInput(Vector2 input)` | Aggiunge input look (accumulato) |
+
+#### Dependencies
+Nessuna (self-contained). Input ricevuto via `SetLookInput()` da PlayerController.
+
+---
+
+### 1.4 LauncherConfig.cs
+**Percorso:** Scripts/Core/LauncherConfig.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `ScriptableObject`
+**Attributi classe:** `[CreateAssetMenu(fileName = "LauncherConfig", menuName = "Homing Missile/Launcher Config")]`
+
+Contiene gli stessi campi di MissileLauncher (sezioni Launch, Fire Settings, Recoil, Lock-On, Lock-On Audio) come ScriptableObject condivisibile tra piu launcher.
+
+---
+
+### 1.5 LauncherControllerConfig.cs
+**Percorso:** Scripts/Core/LauncherControllerConfig.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `ScriptableObject`
+**Attributi classe:** `[CreateAssetMenu(fileName = "LauncherControllerConfig", menuName = "Homing Missile/Launcher Controller Config")]`
+
+Contiene gli stessi campi di LauncherController (Rotation, Elevation, Air Mode, Smoothing, Start) come ScriptableObject.
+
+---
+
+### 1.6 MissileConfig.cs
+**Percorso:** Scripts/Core/MissileConfig.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `ScriptableObject`
+**Attributi classe:** `[CreateAssetMenu(fileName = "MissileConfig", menuName = "Homing Missile/Missile Config")]`
+
+Contiene gli stessi campi di HomingMissile (Guidance, Engine, Warhead, Effects, Audio) come ScriptableObject.
+
+---
+
+### 1.7 TargetHealth.cs
+**Percorso:** Scripts/Core/TargetHealth.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+#### Serialized Fields
+| Campo | Tipo | Default | Attributi | Descrizione |
+|-------|------|---------|-----------|-------------|
+| hitsToDestroy | int | 2 | [Header("Hits")] | Numero di colpi per distruggere |
+| explosionPrefab | GameObject | null | [Header("Explosion Effects")] | Prefab esplosione alla distruzione |
+| explosionSound | AudioClip | null | | Suono esplosione |
+| explosionVolume | float | 1f | [Range(0f, 1f)] | Volume esplosione |
+| hitEffectPrefab | GameObject | null | [Header("First-Hit Effect (optional)")] | Effetto danno al primo colpo |
+
+#### Metodi
+| Metodo | Firma | Descrizione |
+|--------|-------|-------------|
+| TakeDamage | `void TakeDamage(float damage)` (private) | Riceve danno via SendMessage. Incrementa hitCount, mostra hitEffect al primo colpo, distrugge al raggiungimento di hitsToDestroy |
+| Explode | `void Explode()` (private) | Istanzia prefab/suono esplosione, rimuove tag "target", distrugge il GameObject |
+
+#### Dependencies
+- `SendMessage("TakeDamage")` chiamato da `HomingMissile.ApplyExplosionDamage()`
+- Rimuove il tag "target" alla morte (cosi il lock-on non lo traccia piu)
+
+---
+
+### 1.8 PlayerController.cs
+**Percorso:** Scripts/Player/PlayerController.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+#### Serialized Fields
+| Campo | Tipo | Default | Attributi | Descrizione |
+|-------|------|---------|-----------|-------------|
+| currentLauncher | LauncherController | null | [Header("Launcher")] | Riferimento al LauncherController |
+| currentMissileLauncher | MissileLauncher | null | | Riferimento al MissileLauncher |
+| playerCamera | Camera | null | [Header("Camera")] | Camera del giocatore |
+| cameraLookTarget | Transform | null | | Target look-at della camera |
+| cameraPositionTarget | Transform | null | | Target posizione della camera |
+| cameraLerpSpeedLauncher | float | 6f | | Velocita interpolazione camera |
+| baseFOV | float | 60f | [Header("Zoom")] | FOV base della camera |
+| zoomSteps | int[] | { 1, 2, 4, 8 } | | Livelli di zoom disponibili |
+
+#### Come trova i riferimenti
+- `FindGameObjectWithTag("Rocket")` → ottiene `LauncherController` e `MissileLauncher`
+- `FindGameObjectWithTag("CameraLookRocket")` → target look-at camera
+- `FindGameObjectWithTag("CameraTransformRocket")` → target posizione camera
+- `FindFirstObjectByType<LauncherHUDController>()` → riferimento all'HUD
+
+#### Input System
+- Usa `SteelSavior.PlayerInputManagment` (generato da InputSystem_Actions.inputactions)
+- Action Map: **Rocket** (non "Tank" come nelle versioni precedenti)
+  - `Look` (Vector2) → passato a `LauncherController.SetLookInput()`
+  - `Attack` (Button) → hold-to-fire in Update, ogni frame rispetta fireRate
+  - `ExitTank` (Button) → non utilizzato nella versione attuale
+  - `Zoom` (float, scroll) → cicla tra zoomSteps, aggiorna FOV camera e HUD
+
+#### Dependencies
+- `InputSystem` (SteelSavior.PlayerInputManagment)
+- `LauncherController` — per rotazione/elevazione
+- `MissileLauncher` — per sparo e camera di mira
+- `LauncherHUDController` — per mostrare/nascondere HUD e aggiornare zoom
+
+---
+
+### 1.9 LauncherHUDController.cs
+**Percorso:** Scripts/UI/LauncherHUDController.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+#### Serialized Fields
+| Campo | Tipo | Default | Attributi | Descrizione |
+|-------|------|---------|-----------|-------------|
+| lockBlinkIntervalMs | int | 150 | [Header("Lock-On")] | Intervallo blink bracket lock (ms) |
+| lockBracketStartSize | float | 140f | | Dimensione bracket a inizio lock |
+| lockBracketLockedSize | float | 60f | | Dimensione bracket quando locked |
+| lockBracketRotation | float | 45f | | Rotazione bracket a inizio lock |
+| lowAmmoWarningThreshold | int | 3 | [Header("Ammo")] | Soglia warning munizioni basse |
+| maxDisplaySlots | int | 20 | | Massimo slot ammo visualizzati |
+| slotFiredFlashDurationMs | int | 80 | [Header("UI Effects")] | Durata flash slot sparato (ms) |
+| hudScale | float | 1f | [Header("Scale & Resolution")] | Scala globale HUD |
+| referenceResolution | Vector2 | (1920, 1080) | | Risoluzione di riferimento |
+| bottomOffset | float | 24f | [Header("Bottom Strip Position")] | Offset dal bordo inferiore |
+| sideOffset | float | 24f | | Offset dai bordi laterali |
+| panelCenterOffset | float | 0f | | Spostamento pannelli verso il centro (px) |
+| panelPadding | Vector4 | (7, 12, 9, 10) | [Header("Panel Padding")] | Padding pannelli (top, right, bottom, left) |
+| azimuthTopOffset | float | 8f | [Header("Compass")] | Offset bussola dal bordo superiore |
+
+#### Come ottiene i riferimenti
+- `UIDocument` — GetComponent sul proprio GameObject (deve avere UIDocument)
+- `MissileLauncher` e `LauncherController` — passati via `Show(launcher, ctrl)` da PlayerController
+- Si sottoscrive agli eventi: OnFire, OnLockProgressChanged, OnTargetLocked, OnTargetLost
+
+#### Public Methods
+| Metodo | Firma | Descrizione |
+|--------|-------|-------------|
+| Show | `void Show(MissileLauncher w, LauncherController ctrl)` | Mostra HUD, connette eventi, costruisce slot |
+| Hide | `void Hide()` | Nasconde HUD, disconnette eventi |
+| SetZoom | `void SetZoom(int level, int activeIndex, int totalSteps)` | Aggiorna display zoom |
+
+#### Elementi HUD (da UXML)
+| Elemento | ID | Funzione |
+|----------|----|----------|
+| Contatore munizioni | rocket-count | Numerico 2 cifre |
+| Slot munizioni | rocket-slots | Barre visive attive/vuote |
+| Barra cooldown | cooldown-fill | Progresso ricarica |
+| Stato fuoco | fire-status | ARMED / LOW AMMO / NO AMMO |
+| Bracket lock-on | lock-bracket | Segue il target sullo schermo |
+| Corner lock | lock-corners | Angoli animati (blink + rotazione) |
+| Stato lock | lock-status | ACQUIRING / LOCKED |
+| Barra lock | lock-bar-fill | Progresso lock 0-100% |
+| Distanza lock | lock-distance | Distanza dal target in metri |
+| Bussola | compass-heading | Azimuth in gradi (000°-359°) |
+| Elevazione | elev-indicator + elev-value | Indicatore + valore in gradi |
+| Zoom | zoom-level + zoom-pips | Livello zoom + indicatori |
+
+#### Lock Bracket Behavior
+- Appare quando un target entra nel cono di lock
+- Segue la posizione schermo del target via `WorldToScreenPoint`
+- Si nasconde quando il target esce dallo schermo (bordi o dietro camera)
+- Rimpicciolisce e smette di ruotare man mano che il lock progredisce
+- Si nasconde completamente quando il target viene perso
+
+---
+
+### 1.10 SessionAnimator.cs
+**Percorso:** Scripts/Utility/SessionAnimator.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+| Campo | Tipo | Default | Descrizione |
+|-------|------|---------|-------------|
+| includeInactive | bool | false | Include componenti su oggetti disabilitati |
+
+Trova e avvia tutti gli Animator e Animation nella scena al `Start()`.
+
+---
+
+### 1.11 ExplosionLightFade.cs
+**Percorso:** Scripts/Utility/ExplosionLightFade.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+| Campo | Tipo | Default | Descrizione |
+|-------|------|---------|-------------|
+| fadeDuration | float | 0.5f | Durata fade in secondi |
+
+Fa svanire gradualmente l'intensita di un componente `Light` (usato sul prefab esplosione).
+
+---
+
+### 1.12 SceneSwitcher.cs
+**Percorso:** Scripts/Utility/SceneSwitcher.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `MonoBehaviour`
+
+| Campo | Tipo | Default | Descrizione |
+|-------|------|---------|-------------|
+| switchKey | Key | Key.F1 | Tasto per cambiare scena |
+
+Premendo il tasto carica la scena successiva nel build order. Usa `InputSystem (Keyboard.current)`.
+
+---
+
+### 1.13 PipelineMaterialConverter.cs (Editor)
+**Percorso:** Scripts/Editor/PipelineMaterialConverter.cs
+**Namespace:** `HomingMissile`
+**Classe base:** `EditorWindow`
+
+**Menu:** Tools → Homing Missile → Convert Materials to Current Pipeline
+
+**Enum:** `Pipeline { URP, BuiltIn, HDRP }`
+
+Editor window che converte automaticamente tutti i materiali dell'asset alla pipeline di rendering corrente. Rileva la pipeline attiva e rimappa shader, texture (BaseColor, Normal, Metallic, etc.) e proprieta. Gestisce sia materiali Lit che Particle.
+
+---
+
+### 1.14 InputSystem_Actions.cs (Auto-generato)
+**Percorso:** Input/InputSystem_Actions.cs
+**Namespace:** `SteelSavior`
+**Classe:** `PlayerInputManagment : IInputActionCollection2, IDisposable`
+
+#### Action Maps
+| Map | Azione | Tipo | Binding |
+|-----|--------|------|---------|
+| **Player** | Move | Value, Vector2 | WASD / Stick sinistro |
+| | Look | Value, Vector2 | Mouse delta / Stick destro |
+| | Attack | Button | Click sinistro / Trigger destro |
+| | Interact | Button (Hold) | E / Gamepad West |
+| | Crouch | Button | Ctrl / Gamepad dpad-down |
+| | Jump | Button | Space / Gamepad South |
+| | Previous | Button | Q |
+| | Next | Button | E |
+| | Sprint | Button | Shift / Stick sinistro click |
+| **Rocket** | Look | Value, Vector2 | Mouse delta / Stick destro |
+| | Attack | Button | Click sinistro / Trigger destro |
+| | ExitTank | Button | E / Gamepad East |
+| | Zoom | Value, float | Scroll wheel |
+
+---
+
+## 2. UI TOOLKIT
+
+### LauncherHUD.uxml — Struttura
+```
+hud-root
+├── azimuth-bar (bussola in alto al centro)
+│   ├── compass-heading (testo azimuth)
+│   └── compass-strip (tacche cardinali)
+├── lock-overlay (overlay lock-on)
+│   └── lock-bracket
+│       ├── lock-corners (4 angoli animati)
+│       ├── lock-status (ACQUIRING/LOCKED)
+│       ├── lock-bar > lock-bar-fill (barra progresso)
+│       └── lock-distance (distanza in metri)
+├── corner × 4 (angoli schermo decorativi)
+├── top-bar (etichetta veicolo e stato)
+├── crosshair-wrap (mirino centrale)
+│   └── crosshair (diamante + bracci + tacche + punto centrale)
+├── scene-switch-hint (suggerimento F1)
+└── bottom-strip
+    ├── ammo-panel (contatore + slot + cooldown + stato)
+    ├── spacer
+    ├── zoom-panel (livello zoom + pips)
+    ├── panel-gap
+    └── elev-panel (indicatore elevazione + valore)
+```
+
+### LauncherHUD.uss — Palette Colori
+| Ruolo | Colore |
+|-------|--------|
+| Testo primario | rgba(225, 235, 242, 0.95) — bianco freddo |
+| Accento | rgba(85, 195, 235, x) — ciano |
+| Sfondo scuro | rgba(6, 10, 16, 0.80) — navy |
+| Status OK | rgba(85, 195, 235, 0.80) — ciano |
+| Status Warning | rgba(255, 148, 30, 0.95) — arancione |
+| Status Danger | rgba(220, 50, 40, 0.95) — rosso |
+| Status Locked | rgba(40, 220, 100, 1) — verde |
+
+---
+
+## 3. FLUSSO DATI COMPLETO
+
+```
+PlayerController.Start()
+  → FindGameObjectWithTag("Rocket") → trova LauncherController + MissileLauncher
+  → FindFirstObjectByType<LauncherHUDController>()
+  → EnterLauncher()
+    → LauncherController.Enter() (legge rotazione attuale)
+    → MissileLauncher.Enter() (reset lock)
+    → LauncherHUDController.Show(launcher, ctrl)
+
+Ogni frame (Update):
+  → Input Rocket.Look → PlayerController.OnLauncherLook()
+    → LauncherController.SetLookInput(delta)
+  → LauncherController.Update()
+    → Applica rotazione Y (turret) ed elevazione X (cannon) con smoothing
+
+  → Input Rocket.Attack (hold) → PlayerController.Update()
+    → MissileLauncher.Fire() (cooldown-gated)
+      → FireMode.RocketList: sgancia missile dalla lista, SetParent(null)
+      → FireMode.Projectile: Instantiate(prefab) su spawnPoint
+      → GetAimDirection() da camera center (raycast)
+      → HomingMissile.Initialize(target, velocity)
+      → OnFire → HUD aggiorna munizioni
+
+  → MissileLauncher.Update()
+    → TargetTracking()
+      → FindBestTarget() con cono, range, occlusione RaycastAll, priorita schermo
+      → Isteresi: cono 50% piu largo per target gia tracciato
+      → Grace period 150ms prima di perdere il target
+      → OnLockProgressChanged → HUD aggiorna bracket
+      → OnTargetLocked → HUD mostra LOCKED
+      → OnTargetLost → HUD nasconde bracket
+    → UpdateLockOnAudio()
+      → Beep acceleranti durante acquisizione
+      → Tono continuo quando locked
+
+  → HomingMissile.FixedUpdate() (dopo lancio)
+    → UpdatePhase() → Launch/Boost/Sustainer/Coast
+    → ApplyThrust() in base alla fase
+    → ApplyGuidance() → Proportional Navigation (a = N' × Vc × LOS_rate)
+    → AlignToVelocity() → ruota missile verso direzione
+    → CheckProximityFuze() → distanza < proximityRadius → Detonate
+    → CheckMissDetection() → missile ha superato il target → Detonate
+
+  → HomingMissile.Detonate()
+    → ApplyExplosionDamage() → OverlapSphere + SendMessage("TakeDamage")
+    → Istanzia explosionPrefab
+    → Destroy missile
+
+  → TargetHealth.TakeDamage(damage)
+    → hitCount++ → se >= hitsToDestroy → Explode()
+    → Rimuove tag "target" → lock-on non lo traccia piu
+```
+
+---
+
+## 4. TAG RICHIESTI
+
+| Tag | Usato da | Scopo |
+|-----|----------|-------|
+| target | MissileLauncher.FindBestTarget() | Identifica oggetti agganciabili dal lock-on |
+| Rocket | PlayerController.FindLauncherReferences() | Trova il GameObject del launcher |
+| CameraLookRocket | PlayerController.FindLauncherReferences() | Target look-at camera in modalita launcher |
+| CameraTransformRocket | PlayerController.FindLauncherReferences() | Target posizione camera in modalita launcher |
+
+---
+
+## 5. PREFAB VARIANTS
+
+| Prefab | Percorso | Descrizione |
+|--------|----------|-------------|
+| RocketLauncher (Air) | Prefabs/Launcher/weapons/PrefabVariantAir/ | Variante per montaggio aereo (airMode = true) |
+| RocketLauncher (Ground) | Prefabs/Launcher/weapons/PrefabvariantGround/ | Variante per postazione terrestre |
+| Rocket.prefab | Prefabs/Launcher/weapons/ | Prefab missile con HomingMissile + Rigidbody |
+| RocketLauncher.fbx | Prefabs/Launcher/weapons/ | Modello 3D base del launcher |
+| Rocket.fbx | Prefabs/Launcher/weapons/ | Modello 3D del missile |
+
+---
+
+## 6. DEMO SCENES
+
+| Scena | Descrizione |
+|-------|-------------|
+| AirDemo.unity | Launcher montato sotto un veicolo aereo (airMode attivo, controlli invertiti) |
+| GroundDemo.unity | Postazione missilistica terrestre classica |
+
+Entrambe le scene usano `SessionAnimator` per avviare automaticamente le animazioni dei target e `SceneSwitcher` (F1) per passare da una all'altra.
+
+---
+
+## 7. RENDER PIPELINE SUPPORT
+
+Il tool **PipelineMaterialConverter** (Tools → Homing Missile → Convert Materials) supporta:
+
+| Pipeline | Shader Lit | Shader Particle |
+|----------|-----------|-----------------|
+| URP | Universal Render Pipeline/Lit | Universal Render Pipeline/Particles/Unlit |
+| Built-In | Standard | Particles/Standard Unlit |
+| HDRP | HDRP/Lit | HDRP/Unlit |
+
+Rileva automaticamente la pipeline attiva e converte tutti i materiali sotto `Assets/HomingMissile/`.
+
+---
+
+## 8. PACKAGE DEPENDENCIES
+
+| Package | Versione | Uso |
+|---------|----------|-----|
+| com.unity.render-pipelines.universal | 17.1.0 | URP rendering |
+| com.unity.inputsystem | 1.14.0 | New Input System |
+| com.unity.textmeshpro | — | Text rendering |
+
+**Unity Version:** 6000.1.12f1 (Unity 6)
