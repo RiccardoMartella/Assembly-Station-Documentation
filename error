@@ -1,1 +1,16 @@
-<li class="hm-checklist-item"><strong>C# events</strong> — <span class="hm-code">OnFire</span>, <span class="hm-code">OnLockProgressChanged</span>, <span class="hm-code">OnTargetLocked</span>, <span class="hm-code">OnTargetLost</span> for easy integration.</li>
+This asset uses "TextMesh Pro" under the Unity Companion License.
+See https://unity.com/legal/licenses/unity-companion-license for details.
+
+This asset uses the Unity "Player Input System" under the Unity Companion License.
+See https://unity.com/legal/licenses/unity-companion-license for details.
+
+This asset includes the "Liberation Sans" and "Inter" fonts under the SIL Open Font License, Version 1.1.
+Full license text is included in Licenses/Font/License.txt.
+See http://scripts.sil.org/OFL for details.
+
+This asset includes plane/ground textures ("Tiles106" series: BaseColor, AmbientOcclusion, Displacement, NormalDX, NormalGL, Roughness) from AmbientCG under Creative Commons CC0 1.0 Universal.
+See https://ambientcg.com/view?id=Tiles106 for details.
+See https://creativecommons.org/publicdomain/zero/1.0/ for license details.
+
+This asset includes audio files (explosion.wav, missile-navigazione.wav, partenza.wav, partenza2.wav) generated using Adobe AI tools under Adobe's Terms of Use.
+See https://www.adobe.com/legal/terms.html for details.
